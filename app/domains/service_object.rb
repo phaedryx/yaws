@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Base class for transaction-style service objects
 class ServiceObject
   # use dry-transaction instead of Actionable
   include ::Dry::Transaction
