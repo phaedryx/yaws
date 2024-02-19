@@ -1,0 +1,226 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+
+AllCops:
+  TargetRailsVersion: 7.0
+
+# Layout
+###################################################################
+Layout/LineLength:
+  Max: 120
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: symmetrical
+
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: start_of_block
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: start_of_line
+
+# Lint
+###################################################################
+Lint/MissingSuper:
+  Enabled: false
+
+# Metrics
+###################################################################
+Metrics/AbcSize:
+  Max: 16
+
+Metrics/BlockLength:
+  Max: 25
+
+Metrics/BlockNesting:
+  Max: 3
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# Until rubocop has a solution to ignore multiline literals
+Metrics/MethodLength:
+  Enabled: false
+
+# Consider the extra 50 lines buffer for namespacing and multiline literals
+Metrics/ModuleLength:
+  Max: 150
+
+Metrics/ParameterLists:
+  Max: 2
+  CountKeywordArgs: false
+  MaxOptionalParameters: 0
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# Naming
+###################################################################
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+# Rails
+###################################################################
+Rails:
+  Enabled: true
+
+Rails/ActionFilter:
+  Enabled: true
+  EnforcedStyle: action
+
+Rails/ApplicationRecord:
+  Enabled: true
+
+Rails/Date:
+  Enabled: true
+  EnforcedStyle: flexible
+
+Rails/Delegate:
+  Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+
+Rails/Output:
+  Enabled: true
+  Exclude:
+    - lib/tasks/**/*
+
+Rails/OutputSafety:
+  Enabled: true
+
+Rails/Presence:
+  Enabled: false
+
+Rails/RequestReferer:
+  EnforcedStyle: referrer
+
+# Style
+###################################################################
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/GuardClause:
+  MinBodyLength: 6
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  EnforcedShorthandSyntax: consistent
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Style/MissingElse:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/NegatedIf:
+  EnforcedStyle: postfix
+
+Style/NumericLiterals:
+  MinDigits: 4
+
+Style/RedundantConstantBase:
+  Enabled: false
+
+Style/RedundantException:
+  Enabled: false
+
+Style/ReturnNil:
+  Enabled: true
+  EnforcedStyle: return_nil
+
+Style/Send:
+  Enabled: true
+
+# Disable until we refactor actionable to not use ruby keyword `fail`
+Style/SignalException:
+  Enabled: false
+
+Style/StringHashKeys:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrivialAccessors:
+  Enabled: false
+
+Style/WhileUntilModifier:
+  Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: brackets
