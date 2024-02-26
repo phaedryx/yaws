@@ -29,9 +29,29 @@ module Words
     end
 
     def exact_match_validation(guess:, answer:)
-      return Success([1]) if guess == answer
+      # binding.pry if answer == "a"
+      return Success(Array.new(guess.length, 1)) if guess == answer
 
-      Failure(guess:, answer:)
+      # -1, 0, 1
+      # -1 no match
+      # 0 in word incorrect placement
+      # 1 in word correct placement
+
+      result = []
+      guess.each_char.with_index do |c, i|
+        # result << 1 if c == answer[i] # exact match
+        # result << -1 unless c == answer[i] # no match
+        # result << 0 if answer.chars.include?(c)
+        result << if c == answer[i]
+          1
+        elsif answer.chars.include?(c)
+          0
+        else
+          -1
+        end
+      end
+
+      Failure(result)
     end
 
     # def validate_guess(guess:, answer:)

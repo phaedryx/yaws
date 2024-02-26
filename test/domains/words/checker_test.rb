@@ -53,6 +53,14 @@ describe ::Words::Checker do
       _(result.failure).must_equal(:length_error)
     end
 
+    it "returns [1] with a guess of 'a' and an answer of 'a'" do
+      @guess = "a"
+      @answer = "a"
+
+      _(result.success?).must_equal(true)
+      _(result.success).must_equal([1])
+    end
+
     it "returns an array of 1's equal to the length of the guess if it is an exact match" do
       length = rand(20)
       @answer = ("a".."z").to_a.sample(length).join
@@ -64,7 +72,6 @@ describe ::Words::Checker do
 
     [
       { guess: "a", answer: "b", result: [-1] },
-      { guess: "a", answer: "a", result: [1] },
       { guess: "aa", answer: "bb", result: [-1, -1] },
       { guess: "ab", answer: "ac", result: [1, -1] },
       { guess: "ab", answer: "cb", result: [-1, 1] },
@@ -83,7 +90,7 @@ describe ::Words::Checker do
         @guess = h[:guess]
         @answer = h[:answer]
 
-        _(result.success).must_equal(h[:result])
+        _(result.failure).must_equal(h[:result])
       end
     end
   end
