@@ -29,7 +29,6 @@ module Words
     end
 
     def exact_match_validation(guess:, answer:)
-      # binding.pry if answer == "a"
       return Success(Array.new(guess.length, 1)) if guess == answer
 
       # -1, 0, 1
